@@ -4,11 +4,11 @@ on:
         branches:
             - feat-devsecops
 
-Jobs:
-    Build:
+jobs:
+    build:
         Runs-on: ubuntu-latest
         Steps:
 
         - name: Hola Mundo
-        Run: |
+        run: |
             echo "hola Mundo"
