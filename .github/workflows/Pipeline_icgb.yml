@@ -29,10 +29,10 @@ jobs:
   
     - name: Run SonarCloud analysis
       run: |
-       npx sonar-scanner \
-         -Dsonar.projectKey=ABUEHACK_Laboratorio-final \
-         -Dsonar.organization=ABUEHACK \
-         -Dsonar.sources=. \
-         -Dsonar.host.url=https://sonarcloud.io \
-         -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
-         -Dsonar.branch.name=feature-german2 
+          npx sonar-scanner \
+            -Dsonar.projectKey=ABUEHACK_Laboratorio-final \
+            -Dsonar.organization=ABUEHACK \
+            -Dsonar.sources=. \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+            -Dsonar.branch.name=feature-german2 
