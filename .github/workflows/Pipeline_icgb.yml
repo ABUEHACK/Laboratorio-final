@@ -37,10 +37,9 @@ jobs:
              -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
              -Dsonar.branch.name=feature-german2 
 
+    #-----------------------SCA--------------------------------------
 
-#-----------------------SCA--------------------------------------
-
- SCA:
+  SCA:
     needs: SAST
     runs-on: ubuntu-latest
     steps:
