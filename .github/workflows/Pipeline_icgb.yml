@@ -31,7 +31,7 @@ jobs:
       run: |
           npx sonar-scanner \
             -Dsonar.projectKey=ABUEHACK_Laboratorio-final \
-            -Dsonar.organization=abuehack \
+            -Dsonar.organization=Abuehack \
              -Dsonar.sources=. \
              -Dsonar.host.url=https://sonarcloud.io \
              -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
