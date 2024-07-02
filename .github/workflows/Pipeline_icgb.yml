@@ -30,7 +30,7 @@ jobs:
     - name: Run SonarCloud analysis
       run: |
        npx sonar-scanner \
-         -Dsonar.projectKey=Laboratorio-final \
+         -Dsonar.projectKey=ABUEHACK_Laboratorio-final \
          -Dsonar.organization=ABUEHACK \
          -Dsonar.sources=. \
          -Dsonar.host.url=https://sonarcloud.io \
