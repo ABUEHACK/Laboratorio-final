@@ -55,3 +55,12 @@ jobs:
 
     - name: Checkout code
       uses: actions/checkout@v2
+
+
+    - name: vuln dep snyk 
+      id: snyk_scan
+      uses: snyk/actions/node@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        args: --all-projects --severity-threshold=high --json > snyk-output.json  
