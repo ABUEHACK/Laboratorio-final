@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: netflix-app
-        image: abuehak/lab-final-docker:latest
+        image: abuehak/lab-final-docker
         ports:
         - containerPort: 80
