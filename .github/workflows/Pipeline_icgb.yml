@@ -83,9 +83,21 @@ jobs:
     - name: Build Docker
       run: |
          docker build --build-arg TMDB_V3_API_KEY=${{ secrets.TMDB_API_KEY }} --tag abuehak/lab-final-docker:latest .
-
+         
     - name: Push Docker
       run: |
         docker push abuehak/lab-final-docker:latest
+
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: 'abuehak/lab-final-docker:latest'
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+        vuln-type: 'os,library'
+        severity: 'CRITICAL,HIGH'
+
+
     
     
