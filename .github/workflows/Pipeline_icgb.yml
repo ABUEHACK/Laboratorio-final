@@ -83,7 +83,7 @@ jobs:
     - name: Build Docker
       run: |
          docker build --build-arg TMDB_V3_API_KEY=${{ secrets.TMDB_API_KEY }} --tag abuehak/lab-final-docker:latest .
-         
+
     - name: Push Docker
       run: |
         docker push abuehak/lab-final-docker:latest
@@ -100,4 +100,15 @@ jobs:
 
 
     
+    #-----------------------despliegue--------------------------------------
+
+  deploy:
+    needs: DockerBuild
+    runs-on: self-hosted
+    steps: 
     
+      - name: Clonacion de codigo
+        uses: actions/checkout@v4
+      - name: Despliegue
+        run: |
+         kubectl apply -f ./Kubernetes/deployment.yml
