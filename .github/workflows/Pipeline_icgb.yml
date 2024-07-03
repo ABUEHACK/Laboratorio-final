@@ -40,7 +40,7 @@ jobs:
     #-----------------------SCA--------------------------------------
 
   SCA:
-    needs: SAST
+   # needs: SAST
     runs-on: ubuntu-latest
     steps:
 
@@ -59,4 +59,33 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        args: --all-projects --severity-threshold=high --json > snyk-output.json  
+        args: --all-projects --severity-threshold=high --json > snyk-output.json
+
+
+
+  #-----------------------Imagen docker--------------------------------------
+
+
+  DockerBuild:
+    needs: [SCA, SAST]
+    runs-on: self-hosted
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Docker Login
+      uses: docker/login-action@v3.0.0
+      with:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    
+    - name: Build Docker
+      run: |
+         docker build --build-arg TMDB_V3_API_KEY=${{ secrets.TMDB_API_KEY }} --tag abuehak/lab-final-docker:latest .
+
+    - name: Push Docker
+      run: |
+        docker push abuehak/lab-final-docker:latest
+    
+    
