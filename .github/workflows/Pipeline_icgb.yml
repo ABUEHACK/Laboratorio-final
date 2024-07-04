@@ -108,7 +108,7 @@ jobs:
     steps: 
     
       - name: Clonacion de codigo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Despliegue
         run: |
          kubectl apply -f ./Kubernetes/deployment.yml
