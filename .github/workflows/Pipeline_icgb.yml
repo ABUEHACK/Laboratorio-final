@@ -104,8 +104,7 @@ jobs:
 
   deploy:
     needs: DockerBuild
-#    runs-on: self-hosted
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps: 
     
       - name: Clonacion de codigo
